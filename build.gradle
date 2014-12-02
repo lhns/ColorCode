@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+version = "0.0"
+group = "org.lolhens"
+
+task testJar(type: Jar, dependsOn: javadoc) {
+    from sourceSets.main.output
+    from sourceSets.test.output
+    classifier = 'test'
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    from 'build/docs/javadoc'
+    classifier = 'javadoc'
+}
+
+build.dependsOn testJar, sourceJar, javadocJar
