@@ -1,0 +1,13 @@
+8bit
+    opcode
+16bit
+    data
+
+opcodes:
+    NOP
+    SLOAD
+    JMP
+    RUN
+    CALL
+    WRITE
+    READ
