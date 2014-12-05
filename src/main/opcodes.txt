@@ -1,13 +1,33 @@
-8bit
+4bit
     opcode
-16bit
+20bit
     data
 
 opcodes:
-    NOP
-    SLOAD
-    JMP
-    RUN
-    CALL
-    WRITE
-    READ
+0   NOP
+1   SLOAD(register, short)
+2   MV(register, from: register)
+3   PUSH(register)
+4   POP(register)
+5   IN(register)
+6   OUT(register)
+//
+4   +
+5   -
+6   *
+7   /
+8   &
+9   |
+10  ^
+11  BREQ
+12  BRNE
+13  BR
+13
+4   JMP[x, y, dir]
+5   RUN[x, y, dir]
+6   CALL[length]
+
+
+dsts:
+0   null
+2   image[x, y, dir]

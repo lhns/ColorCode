@@ -11,6 +11,12 @@ import javax.imageio.ImageIO
  */
 class Program(file: File) {
   val image: BufferedImage = ImageIO.read(file)
+
+  val width = image.getWidth()
+  val height = image.getHeight()
+  val data = Array.ofDim[Int](width, height)
+  for (y <- 0 until height; x <- 0 until width) data(x)(y) = image.getRGB(x, y) & 0xFFFFFF
+
   private val cursors: util.List[Cursor] = new util.ArrayList[Cursor]()
   private val executorService: ExecutorService = Executors.newCachedThreadPool()
 
