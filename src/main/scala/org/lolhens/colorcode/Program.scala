@@ -15,15 +15,15 @@ class Program(file: File) {
   val width = image.getWidth()
   val height = image.getHeight()
   val data = Array.ofDim[Int](width, height)
-  for (y <- 0 until height; x <- 0 until width) data(x)(y) = image.getRGB(x, y) & 0xFFFFFF
+  for (y <- 0 until height; x <- 0 until width) data(x)(y) = image.getRGB(x, y) & 0xFFFFFFFF
 
   private val cursors: util.List[Cursor] = new util.ArrayList[Cursor]()
   private val executorService: ExecutorService = Executors.newCachedThreadPool()
 
   addCursor(0, 0)
 
-  def addCursor(x: Int, y: Int, dir: Int = 1) = {
-    val cursor = new Cursor(this, x, y, dir)
+  def addCursor(x: Int, y: Int, dir: Int = 1, parent: Cursor = null) = {
+    val cursor = new Cursor(this, x, y, dir, parent)
     cursors.add(cursor)
     executorService.execute(cursor)
   }

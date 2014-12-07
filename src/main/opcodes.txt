@@ -13,30 +13,25 @@ opcodes:
 6   OUT(register)
 7   JMP(x: register, y: register, dir: register)
 8   CALL(x: register, y: register, dir: register)
-9   RUN(x: register, y: register, dir: register)
-10  +(register, other: register)
-11  -(register, other: register)
-12  *(register, other: register)
-13  /(register, other: register)
-14  &(register, other: register)
-15  |(register, other: register)
-16  ^(register, other: register)
-//
-20  BREQ(register, other: register)
-21  BREQ(register, short)
-22  BRNE(register, other: register)
-23  BRNE(register, short)
-
-//TODO RETURN
-/*
-13  BR
-13
-4   JMP[x, y, dir]
-5   RUN[x, y, dir]
-6   CALL[length]
-
-
-dsts:
-0   null
-2   image[x, y, dir]
-*/
+9   RET
+10  RUN(x: register, y: register, dir: register)
+11  +(register, other: register)
+12  -(register, other: register)
+13  *(register, other: register)
+14  /(register, other: register)
+15  &(register, other: register)
+16  |(register, other: register)
+17  ^(register, other: register)
+18  >>(register, other: register)
+19  <<(register, other: register)
+20  >>>(register, other: register)
+21  CP(register, other: register)
+22  CP(register, short)
+23  BREQ(dir)
+24  BRNE(dir)
+25  BRLT(dir)
+26  BRGT(dir)
+27  BRLE(dir)
+28  BRGE(dir)
+29  BR(dir)
+30  END
