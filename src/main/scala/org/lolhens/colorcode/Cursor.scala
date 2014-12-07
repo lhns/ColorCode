@@ -123,7 +123,8 @@ class Cursor(private val program: Program,
       case 27 => if (compare <= 0) dir = args(0) // BRLE
       case 28 => if (compare >= 0) dir = args(0) // BRGE
       case 29 => dir = args(0) // BR
-      case 30 => // IN
+      case 30 => program.data(args(0))(register(args(1))) = 0// IN
+      case 31 => // OUT
       case 255 => end // END
       case _ => // NOP
     }
